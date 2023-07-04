@@ -8,62 +8,82 @@ import { auth } from "../firebase/firebaseConfig";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
 
 const { Header } = Layout;
-const items2 = [
-  {
-    label: <Link to="/">1st menu item</Link>,
-    key: "0",
-  },
-  {
-    label: <Link to="/">2nd menu item</Link>,
-    key: "1",
-  },
-  {
-    type: "divider",
-  },
-  {
-    label: "3rd menu item",
-    key: "3",
-  },
-];
 
 const items = [
   {
     key: "1",
     label: (
       <Link
+        style={{ textDecoration: "none", fontSize: 15, width:50, fontWeight:500, marginLeft: 15 }}
         target="_blank"
         rel="noopener noreferrer"
         to="/"
       >
-        1st menu item
+        Home
       </Link>
     ),
+    icon: <HomeIcon style={{fontSize:25}}/>,
   },
   {
     key: "2",
     label: (
       <Link
+        style={{ textDecoration: "none", fontSize: 15, width:50, fontWeight:500, marginLeft: 15 }}
         target="_blank"
         rel="noopener noreferrer"
         to="https://www.aliyun.com"
       >
-        2nd menu item
+        Ride
       </Link>
     ),
+    icon: <DirectionsCarIcon style={{fontSize:25}}/>,
   },
   {
     key: "3",
     label: (
       <Link
+        style={{ textDecoration: "none", fontSize: 15, width:50, fontWeight:500, marginLeft: 15 }}
         target="_blank"
         rel="noopener noreferrer"
         to="https://www.luohanacademy.com"
       >
-        3rd menu item
+        Eat
       </Link>
     ),
+    icon: <LocalDiningIcon style={{fontSize:25}}/>,
+  },
+  {
+    key: "4",
+    label: (
+      <Link
+        style={{ textDecoration: "none", fontSize: 15, width:50, fontWeight:500, marginLeft: 15 }}
+        target="_blank"
+        rel="noopener noreferrer"
+        to="https://www.luohanacademy.com"
+      >
+        Eat
+      </Link>
+    ),
+    icon: <LocalDiningIcon style={{fontSize:25}}/>,
+  },
+  {
+    key: "5",
+    label: (
+      <Link
+        style={{ textDecoration: "none", fontSize: 15, width:50, fontWeight:500, marginLeft: 15 }}
+        target="_blank"
+        rel="noopener noreferrer"
+        to="https://www.luohanacademy.com"
+      >
+        Eat
+      </Link>
+    ),
+    icon: <LocalDiningIcon style={{fontSize:25}}/>,
   },
 ];
 
@@ -97,7 +117,7 @@ function HeaderComponent() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto ">
-            <Nav.Link href="/" className="text-light me-4 fs-6">
+              <Nav.Link href="/" className="text-light me-4 fs-6">
                 Company
               </Nav.Link>
               <Nav.Link href="/" className="text-light me-4 fs-6">
@@ -115,6 +135,10 @@ function HeaderComponent() {
                   }}
                   trigger={["click"]}
                   placement="bottom"
+                  overlayStyle={{
+                    width: '200px', // Adjust the width as per your preference
+                    maxHeight: '200px', // Adjust the height as per your preference
+                  }}  
                 >
                   <Button
                     className="text-light me-4 fs-6 fw-bold"
@@ -129,6 +153,7 @@ function HeaderComponent() {
                     <AppsIcon />
                     Product
                   </Button>
+                  
                 </Dropdown>
               </Nav.Link>
 
