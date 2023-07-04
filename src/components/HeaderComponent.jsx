@@ -7,44 +7,62 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const { Header } = Layout;
+const items2 = [
+  {
+    label: <Link to="/">1st menu item</Link>,
+    key: "0",
+  },
+  {
+    label: <Link to="/">2nd menu item</Link>,
+    key: "1",
+  },
+  {
+    type: "divider",
+  },
+  {
+    label: "3rd menu item",
+    key: "3",
+  },
+];
 
 const items = [
   {
     key: "1",
     label: (
-      <a
+      <Link
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.antgroup.com"
+        to="/"
       >
         1st menu item
-      </a>
+      </Link>
     ),
   },
   {
     key: "2",
     label: (
-      <a
+      <Link
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.aliyun.com"
+        to="https://www.aliyun.com"
       >
         2nd menu item
-      </a>
+      </Link>
     ),
   },
   {
     key: "3",
     label: (
-      <a
+      <Link
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.luohanacademy.com"
+        to="https://www.luohanacademy.com"
       >
         3rd menu item
-      </a>
+      </Link>
     ),
   },
 ];
@@ -79,18 +97,18 @@ function HeaderComponent() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto ">
-              <Nav.Link href="#home" className="text-light me-4 fs-6 ">
-                Company <ExpandMoreIcon />
+            <Nav.Link href="/" className="text-light me-4 fs-6">
+                Company
               </Nav.Link>
-              <Nav.Link href="#link" className="text-light me-4 fs-6">
+              <Nav.Link href="/" className="text-light me-4 fs-6">
                 Safety
               </Nav.Link>
-              <Nav.Link href="#link" className="text-light me-4 fs-6">
+              <Nav.Link href="/" className="text-light me-4 fs-6">
                 Help
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link >
+              <Nav.Link>
                 <Dropdown
                   menu={{
                     items,
@@ -106,7 +124,7 @@ function HeaderComponent() {
                       color: "#FFF",
                       display: "flex",
                       alignItems: "center",
-                    }}  
+                    }}
                   >
                     <AppsIcon />
                     Product
@@ -123,7 +141,7 @@ function HeaderComponent() {
                     color: "#FFF",
                   }}
                 >
-                  Đăng nhập
+                  Login
                 </Button>
               </Nav.Link>
               <Nav.Link href="#register">
@@ -132,7 +150,7 @@ function HeaderComponent() {
                   shape="round"
                   style={{ border: "none" }}
                 >
-                  Đăng ký
+                  Sign Up
                 </Button>
               </Nav.Link>
             </Nav>
