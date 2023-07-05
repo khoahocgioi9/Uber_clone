@@ -47,55 +47,53 @@ function HomeBanner() {
 
   return (
     <>
-     <Container
-      fluid
-      style={{
-        backgroundImage: `url(${backgroundimg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "600px",
-      }}
-    >
-      <Row>
-        <Col md={{ span: 4, offset: 1 }} style={{ marginTop: "10vh" }}>
-          <Card>
-            <Row>
-              {menuItems.map((item) => (
-                <Col span={8} key={item.key}>
-                  <Menu
-                    onClick={handleClick}
-                    selectedKeys={[currentMenu]}
-                    mode="horizontal"
-                  >
-                    <Menu.Item key={item.key}>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                        }}
-                      >
-                        {item.icon}
-                        <span>{item.label}</span>
-                      </div>
-                    </Menu.Item>
-                  </Menu>
+      <Container
+        fluid
+        style={{
+          backgroundImage: `url(${backgroundimg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "600px",
+        }}
+      >
+        <Row>
+          <Col md={{ span: 4, offset: 1 }} style={{ marginTop: "10vh" }}>
+            <Card style={{ borderRadius: "0px" }}>
+              <Row>
+                {menuItems.map((item) => (
+                  <Col span={8} key={item.key}>
+                    <Menu
+                      onClick={handleClick}
+                      selectedKeys={[currentMenu]}
+                      mode="horizontal"
+                    >
+                      <Menu.Item key={item.key}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                          }}
+                        >
+                          {item.icon}
+                          <span>{item.label}</span>
+                        </div>
+                      </Menu.Item>
+                    </Menu>
+                  </Col>
+                ))}
+              </Row>
+              <Row>
+                <Col md={{ span: 10, offset: 1 }} style={{ marginTop: "5vh" }}>
+                  {renderComponent()}
                 </Col>
-              ))}
-            </Row>
-            <Row>
-              <Col md={{ span: 10, offset: 1 }} style={{ marginTop: "10vh" }}>
-                {renderComponent()}
-              </Col>
-            </Row>
-          </Card>
-        </Col>
-      </Row>
-    
-    </Container>
-    <FooterBanner/>
+              </Row>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+      <FooterBanner />
     </>
-   
   );
 }
 
